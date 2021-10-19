@@ -6,11 +6,17 @@ import { DescriptionHeader, Card } from 'components';
 const MainPageWrapper = styled.div`
   width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-
+  align-items: center;
   margin-bottom: 40px;
+`;
+
+const StyledCard = styled.div`
+  display: flex;
+  width: 90vw;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: left;
 `;
 
 const MainPage = () => (
@@ -19,11 +25,14 @@ const MainPage = () => (
     <MainPageWrapper>
       <DescriptionHeader />
     </MainPageWrapper>
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    <StyledCard>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </StyledCard>
   </>
 );
 

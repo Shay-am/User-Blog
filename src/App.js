@@ -1,25 +1,26 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import { theme } from 'Theme/Theme';
-import MainPage from 'page/MainPage';
+import { MainPage, UserPage } from 'page';
 
 import GlobalStyle from './Theme/GlobalStyles';
 
-const StyledApp = styled.div`
-  height: 100vh;
-  width: 100vw;
-`;
-
 const App = () => (
   <>
-    <GlobalStyle />
-    <ThemeProvider theme={theme}>
-      <>
-        <StyledApp>
-          <MainPage />
-        </StyledApp>
-      </>
-    </ThemeProvider>
+    <Router>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Switch>
+          <Route exact path="/">
+            <MainPage />
+          </Route>
+          <Route path="/user/:id">
+            <UserPage />
+          </Route>
+        </Switch>
+      </ThemeProvider>
+    </Router>
   </>
 );
 
