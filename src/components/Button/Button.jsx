@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  width: 15rem;
-  height: 3.5rem;
+  width: fit-content;
+
+  font-size: 2rem;
+  padding: 0.5rem;
   background: ${({ theme }) => theme.btn};
   color: white;
   border: none;

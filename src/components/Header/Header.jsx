@@ -4,7 +4,6 @@ import { Logo, Title } from 'components';
 
 const StyledHeader = styled.div`
   width: 100vw;
-
   display: flex;
   justify-content: space-around;
   padding: 6px 20px 7px 20px;

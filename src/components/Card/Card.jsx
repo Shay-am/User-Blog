@@ -4,12 +4,12 @@ import { Avatar, Button } from 'components';
 
 const CardWrapper = styled.div`
   position: relative;
-  width: 320px;
-  height: 150px;
+  min-width: 320px;
+  min-height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 0 20px 30px;
+  margin: 0px 0 30px 30px;
   border: 1px solid gray;
   box-shadow: 0 0 0.5em gray;
 
