@@ -1,8 +1,9 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { Avatar, Button } from 'components';
+import styled from 'styled-components';
+import { Avatar, Button, CardDetails } from 'components';
+import { NavLink } from 'react-router-dom';
 
-const CardWrapper = styled.div`
+const CardWrapper = styled.li`
   position: relative;
   min-width: 320px;
   min-height: 150px;
@@ -18,7 +19,7 @@ const CardWrapper = styled.div`
   }
 `;
 
-const CardDescription = styled.div`
+const StyledCardDescription = styled.div`
   width: 60%;
   height: 100px;
   display: flex;
@@ -27,16 +28,6 @@ const CardDescription = styled.div`
   margin-left: 10px;
 `;
 
-const CardDetails = styled.p`
-  font-weight: ${({ theme }) => theme.bold};
-  font-size: 1.5em;
-
-  ${({ email }) =>
-    email &&
-    css`
-      font-size: 1em;
-    `}
-`;
 const StyledButton = styled.div`
   position: absolute;
   bottom: 5px;
@@ -47,13 +38,15 @@ const Card = () => (
   <>
     <CardWrapper>
       <Avatar />
-      <CardDescription>
+      <StyledCardDescription>
         <CardDetails>Leanne Graham</CardDetails>
-        <CardDetails email>Email: Sincere@Aprli.Biz</CardDetails>
-        <CardDetails email>Id:2</CardDetails>
-      </CardDescription>
+        <CardDetails secondary>Email: Sincere@Aprli.Biz</CardDetails>
+        <CardDetails secondary>Id:2</CardDetails>
+      </StyledCardDescription>
       <StyledButton>
-        <Button>My List Posts</Button>
+        <Button as={NavLink} to="/user/1">
+          My Lists Posts
+        </Button>
       </StyledButton>
     </CardWrapper>
   </>

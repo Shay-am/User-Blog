@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'Theme/Theme';
-import { MainPage, UserPage } from 'page';
+import { MainPage, UserPage, CommentPage } from 'page';
 
 import GlobalStyle from './Theme/GlobalStyles';
 
@@ -15,8 +15,11 @@ const App = () => (
           <Route exact path="/">
             <MainPage />
           </Route>
-          <Route path="/user/:id">
+          <Route exact path="/user/1">
             <UserPage />
+          </Route>
+          <Route exact path="/user/post/2/comments">
+            <CommentPage />
           </Route>
         </Switch>
       </ThemeProvider>

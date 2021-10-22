@@ -12,7 +12,7 @@ const StyledHeader = styled.div`
 const Header = () => (
   <StyledHeader>
     <Logo />
-    <Title />
+    <Title>User Blog</Title>
   </StyledHeader>
 );
 

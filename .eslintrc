@@ -4,7 +4,8 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "import/no-unresolved": 1,
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "react/prop-types": "off"
   },
   "settings": {
     "import/resolver": {
@@ -14,6 +15,7 @@
     }
   },
   "globals": {
-    "document": true
+    "document": true,
+    "window": true
   }
 }
