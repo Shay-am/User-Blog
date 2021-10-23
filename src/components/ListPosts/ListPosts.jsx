@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink, useParams } from 'react-router-dom';
-import { Title, Description, Button, CardDetails } from 'components';
+import { NavLink } from 'react-router-dom';
+import { Title, Description, Button, Paragraph } from 'components';
 
 const StyledWrapperList = styled.div`
   width: 100vw;
@@ -12,7 +12,7 @@ const StyledWrapperList = styled.div`
 `;
 const StyledTitle = styled.div`
   margin-top: 10rem;
-  background-color: #ebe2e2;
+  text-align: center;
 `;
 
 const StyledDetails = styled.section`
@@ -22,39 +22,39 @@ const StyledDetails = styled.section`
   margin-top: 2rem;
 `;
 
-const ListPosts = () => {
-  const { comments } = useParams();
-  // eslint-disable-next-line
-  console.log(comments, 'cos');
-  const isComment = true;
-  return (
-    <>
-      <StyledWrapperList>
-        <StyledTitle>
-          <Title>
-            sunt aut facere repellat provident occaecati excepturi optio
-            reprehenderit
-          </Title>
-        </StyledTitle>
+const StyledDescription = styled.section`
+  width: 80vw;
+`;
+
+const ListPosts = ({ isComment }) => (
+  <>
+    <StyledWrapperList>
+      <StyledTitle>
+        <Title type="h2">
+          sunt aut facere repellat provident occaecati excepturi optio
+          reprehenderit
+        </Title>
+      </StyledTitle>
+      <StyledDescription>
         <Description post>
           quia et suscipit suscipit recusandae consequuntur expedita et cum
           reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt
           rem eveniet architecto
         </Description>
+      </StyledDescription>
+      <StyledDetails>
+        <Paragraph>UserId: 2</Paragraph>
+        <Paragraph>PostId: 2</Paragraph>
+      </StyledDetails>
+      {!isComment && (
         <StyledDetails>
-          <CardDetails>UserId: 2</CardDetails>
-          <CardDetails>PostId: 2</CardDetails>
+          <Button>Edit post</Button>
+          <Button as={NavLink} to="/comments">
+            comments
+          </Button>
         </StyledDetails>
-        {isComment && (
-          <StyledDetails>
-            <Button>Edit post</Button>
-            <Button as={NavLink} to="/user/post/2/comments">
-              comments
-            </Button>
-          </StyledDetails>
-        )}
-      </StyledWrapperList>
-    </>
-  );
-};
+      )}
+    </StyledWrapperList>
+  </>
+);
 export default ListPosts;

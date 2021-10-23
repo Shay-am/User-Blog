@@ -1,17 +1,17 @@
 import styled, { css } from 'styled-components';
 
 const Description = styled.article`
-  text-align: center;
+  text-align: justify;
   font-family: 'Poppins', sans-serif;
-  font-weight: ${({ theme }) => theme.extraLight};
-  font-size: 1rem;
+  font-weight: ${({ theme }) => theme.light};
+  font-size: ${({ theme }) => theme.xs};
   padding: 4px 0 5px 0;
   margin-top: 5px;
+  line-height: 20px;
 
   ${({ post }) =>
     post &&
     css`
-      min-width: 90vw;
       font-size: 1.7rem;
     `}
 `;

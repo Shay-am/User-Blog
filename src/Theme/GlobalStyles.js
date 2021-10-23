@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import BackgroundImage from 'assets/Backgroun-image.svg';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,200;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,300;1,500&display=swap');
  
   *, *::before, *::after {
     box-sizing: border-box;

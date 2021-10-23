@@ -1,11 +1,15 @@
 export const theme = {
   primary: 'black',
-  btn: 'hsl(137,58%,20%,53%)',
+  btn: 'hsla(224, 100%, 53%, 1)',
   btn_secondary: 'hsl(0,3%,39%, 100%)',
-  lightGray: 'hsl(0,10%,93%,100%)',
-  // lightGray: 'black',
+  lightGray: 'hsla(224, 100%, 86%, 1)',
   arrow: 'white',
-  extraLight: 200,
   light: 300,
-  bold: 400,
+  medium: 500,
+  bold: 600,
+
+  xs: '1.5rem',
+  s: '1.6rem',
+  l: '2rem',
+  x: '3rem',
 };

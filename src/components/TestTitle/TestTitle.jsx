@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const Title = ({ type, children }) =>
+const Heading = ({ type, children }) =>
   React.createElement(
     styled(type)`
       font-family: 'Poppins', sans-serif;
@@ -14,11 +14,11 @@ const Title = ({ type, children }) =>
     children,
   );
 
-Title.propTypes = {
+Heading.propTypes = {
   type: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
 };
-Title.defaultProps = {
+Heading.defaultProps = {
   type: 'h1',
 };
 
-export default Title;
+export default Heading;

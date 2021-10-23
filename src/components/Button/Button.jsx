@@ -1,31 +1,46 @@
 import styled, { css } from 'styled-components';
+import prevIconButton from '../../assets/PrevIconButton.svg';
 
 const Button = styled.button`
   width: fit-content;
-  font-size: 2rem;
-  padding: 0.5rem;
+
+  font-size: ${({ theme }) => theme.s};
+  padding: 0.7rem;
   background: ${({ theme }) => theme.btn};
   color: white;
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     color: ${({ theme }) => theme.btn};
-    font-weight: bold;
+    font-weight: ${({ theme }) => theme.bold};
   }
 
   ${({ prev }) =>
     prev &&
     css`
-      &::after {
+      margin-left: 30px;
+      background: none;
+      color: black;
+      width: 7rem;
+      height: 4rem;
+      border-radius: none;
+      font-size: 1.3rem;
+
+      &::before {
+        width: 70px;
+        height: 70px;
         content: '';
-        display: block;
-        position: relative;
-        background-image: url('../assets/NextArrow.svg');
-        background-size: 28px 28px;
-        height: 40px;
-        width: 40px;
+        position: absolute;
+        background-image: url(${prevIconButton});
+        background-size: cover;
+
+        background-repeat: no-repeat;
+        background-size: 50px 50px;
+        left: 2px;
+        top: 3px;
       }
     `}
 `;

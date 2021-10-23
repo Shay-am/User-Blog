@@ -1,64 +1,82 @@
 import React from 'react';
 
-import {
-  Avatar,
-  PrevButton,
-  ListPosts,
-  CardDetails,
-  Description,
-} from 'components';
+import { ListPosts, Paragraph, Description } from 'components';
 
 import styled from 'styled-components';
+import Header from 'components/Header/Header';
 
-const StyledWrapper = styled.div`
-  width: 100vw;
+const Wrapper = styled.div`
+  display: flex;
+  margin-top: 20px;
+  width: auto;
+  height: 200px;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
-const StyledHeader = styled.header`
+const StyledDescriptionWrapper = styled.section`
+  width: 90vw;
+  margin-left: 10px;
+`;
+const StyledParagraph = styled.section`
   width: 100vw;
-  background-color: white;
   display: flex;
-  justify-content: space-between;
-  position: relative;
-  position: fixed;
+  justify-content: space-around;
 `;
 
-const StyledHeading = styled.div`
-  width: 40vw;
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-  justify-content: space-between;
+const StyledComments = styled.div`
+  margin-top: 20px;
 `;
 
 const CommentPage = () => (
-  <StyledWrapper>
-    <StyledHeader>
-      <PrevButton>Zmien uzytkownika</PrevButton>
-      <StyledHeading>
-        <CardDetails secondary>Mateusz Bogacz </CardDetails>
-        <Avatar mini />
-      </StyledHeading>
-    </StyledHeader>
-    <ListPosts />
-    <CardDetails>Comments</CardDetails>
-    <p>
-      <strong>Name:</strong>
-    </p>
-    <CardDetails secondary>
-      et fugit eligendi deleniti quidem qui sint nihil auteAm
-    </CardDetails>
+  <>
+    <Header nav />
+    <ListPosts isComment />
+    <StyledComments>
+      <Paragraph>Comments:</Paragraph>
+    </StyledComments>
+    <Wrapper>
+      <Paragraph secondary>
+        <strong>Name:</strong> et fugit eligendi deleniti quidem qui sint nihil
+        auteAm
+      </Paragraph>
 
-    <CardDetails secondary>
-      <strong>Email:</strong>Presley.Mueller@myrl.com
-    </CardDetails>
-    <Description post>
-      doloribus at sed quis culpa deserunt consectetur qui
-      praesentium\naccusamus fugiat dicta\nvoluptatem rerum ut voluptate
-      autem\nvoluptatem repellendus aspernatur dolorem in
-    </Description>
-    <CardDetails>UserId: 2</CardDetails>
-    <CardDetails>PostId: 2</CardDetails>
-  </StyledWrapper>
+      <Paragraph secondary>
+        <strong>Email:</strong> Presley.Mueller@myrl.com
+      </Paragraph>
+      <StyledDescriptionWrapper>
+        <Description>
+          doloribus at sed quis culpa deserunt consectetur qui
+          praesentium\naccusamus fugiat dicta\nvoluptatem rerum ut voluptate
+          autem\nvoluptatem repellendus aspernatur dolorem in
+        </Description>
+      </StyledDescriptionWrapper>
+      <StyledParagraph>
+        <Paragraph>UserId: 2</Paragraph>
+        <Paragraph>PostId: 2</Paragraph>
+      </StyledParagraph>
+    </Wrapper>
+    <Wrapper>
+      <Paragraph secondary>
+        <strong>Name:</strong> et fugit eligendi deleniti quidem qui sint nihil
+        auteAm
+      </Paragraph>
+
+      <Paragraph secondary>
+        <strong>Email:</strong> Presley.Mueller@myrl.com
+      </Paragraph>
+      <StyledDescriptionWrapper>
+        <Description>
+          doloribus at sed quis culpa deserunt consectetur qui
+          praesentium\naccusamus fugiat dicta\nvoluptatem rerum ut voluptate
+          autem\nvoluptatem repellendus aspernatur dolorem in
+        </Description>
+      </StyledDescriptionWrapper>
+      <StyledParagraph>
+        <Paragraph>UserId: 2</Paragraph>
+        <Paragraph>PostId: 2</Paragraph>
+      </StyledParagraph>
+    </Wrapper>
+  </>
 );
 export default CommentPage;

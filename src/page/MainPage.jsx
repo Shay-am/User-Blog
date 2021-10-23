@@ -1,19 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from 'components/Header/Header';
 import { Description, Card } from 'components';
+import Header from 'components/Header/Header';
 
 const MainPageWrapper = styled.div`
   width: 100vw;
   display: flex;
+
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
+  top: 100px;
 `;
 const StyledDescriptionWrapper = styled.section`
   width: 80vw;
   word-spacing: 2px;
-  margin-right: 10px;
+  margin: 10px 10px 40px 10px;
 `;
 
 const StyledCard = styled.ul`

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Avatar, Button, CardDetails } from 'components';
+import { Avatar, Button, Paragraph } from 'components';
 import { NavLink } from 'react-router-dom';
 
 const CardWrapper = styled.li`
@@ -30,7 +30,7 @@ const StyledCardDescription = styled.div`
 
 const StyledButton = styled.div`
   position: absolute;
-  bottom: 5px;
+  bottom: 15px;
   right: 5px;
 `;
 
@@ -39,9 +39,9 @@ const Card = () => (
     <CardWrapper>
       <Avatar />
       <StyledCardDescription>
-        <CardDetails>Leanne Graham</CardDetails>
-        <CardDetails secondary>Email: Sincere@Aprli.Biz</CardDetails>
-        <CardDetails secondary>Id:2</CardDetails>
+        <Paragraph>Leanne Graham</Paragraph>
+        <Paragraph secondary>Email: Sincere@Aprli.Biz</Paragraph>
+        <Paragraph secondary>Id:2</Paragraph>
       </StyledCardDescription>
       <StyledButton>
         <Button as={NavLink} to="/user/1">

@@ -18,7 +18,7 @@ const App = () => (
           <Route exact path="/user/1">
             <UserPage />
           </Route>
-          <Route exact path="/user/post/2/comments">
+          <Route exact path="/comments">
             <CommentPage />
           </Route>
         </Switch>
