@@ -10,8 +10,6 @@ const Button = styled.button`
   border-radius: 20px;
   cursor: pointer;
   text-decoration: none;
-  }
-
 
   ${({ cancel }) =>
     cancel &&

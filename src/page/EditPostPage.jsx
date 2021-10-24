@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border: 1px solid black;
-  /* background-color: hsla(214, 61%, 60%, 1); */
 `;
 
 const StyledUploading = styled.div`
@@ -28,7 +27,7 @@ const StyledWrapperTextArea = styled.div`
   margin-bottom: 10px;
 `;
 
-const StyledButtonWrapepr = styled.div`
+const StyledButtonWrapper = styled.div`
   width: 100vw;
   display: flex;
   justify-content: space-evenly;
@@ -65,14 +64,14 @@ const EditPostPage = () => {
             Body
           </TextArea>
         </StyledWrapperTextArea>
-        <StyledButtonWrapepr>
+        <StyledButtonWrapper>
           <Button cancel as={Link} to="/user/1">
             Cancel
           </Button>
           <Button as={Link} to="/user/1">
             Save
           </Button>
-        </StyledButtonWrapepr>
+        </StyledButtonWrapper>
       </Wrapper>
     </>
   );
