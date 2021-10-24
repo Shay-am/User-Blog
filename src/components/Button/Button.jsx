@@ -2,8 +2,6 @@ import styled, { css } from 'styled-components';
 import prevIconButton from '../../assets/PrevIconButton.svg';
 
 const Button = styled.button`
-  width: fit-content;
-
   font-size: ${({ theme }) => theme.s};
   padding: 0.7rem;
   background: ${({ theme }) => theme.btn};
@@ -12,11 +10,17 @@ const Button = styled.button`
   border-radius: 20px;
   cursor: pointer;
   text-decoration: none;
-
-  &:hover {
-    color: ${({ theme }) => theme.btn};
-    font-weight: ${({ theme }) => theme.bold};
   }
+
+
+  ${({ cancel }) =>
+    cancel &&
+    css`
+      height: 30px;
+      text-align: center;
+      font-size: ${({ theme }) => theme.xxs};
+      background: ${({ theme }) => theme.grey};
+    `}
 
   ${({ prev }) =>
     prev &&

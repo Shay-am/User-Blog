@@ -1,17 +1,16 @@
 import React from 'react';
-
-import { ListPosts, Paragraph, Description } from 'components';
-
 import styled from 'styled-components';
+import { ListPosts, Paragraph, Description } from 'components';
 import Header from 'components/Header/Header';
 
 const Wrapper = styled.div`
   display: flex;
-  margin-top: 20px;
   width: auto;
   height: 200px;
   flex-direction: column;
   justify-content: space-around;
+  margin: 20px 0 0 0;
+  padding: 5px 5px 5px 5px;
 `;
 
 const StyledDescriptionWrapper = styled.section`

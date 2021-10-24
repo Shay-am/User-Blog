@@ -48,7 +48,9 @@ const ListPosts = ({ isComment }) => (
       </StyledDetails>
       {!isComment && (
         <StyledDetails>
-          <Button>Edit post</Button>
+          <Button as={NavLink} to="/edit">
+            Edit post
+          </Button>
           <Button as={NavLink} to="/comments">
             comments
           </Button>

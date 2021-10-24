@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const CardWrapper = styled.li`
   position: relative;
-  min-width: 320px;
+  min-width: 290px;
   min-height: 150px;
   display: flex;
   justify-content: center;
@@ -16,6 +16,7 @@ const CardWrapper = styled.li`
 
   &:hover {
     background: ${({ theme }) => theme.lightGray};
+    cursor: pointer;
   }
 `;
 

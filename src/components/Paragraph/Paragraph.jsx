@@ -10,6 +10,14 @@ const Paragraph = styled.p`
       font-size: ${({ theme }) => theme.xs};
       font-weight: ${({ theme }) => theme.medium};
     `}
+
+  ${({ trials }) =>
+    trials &&
+    css`
+      font-size: ${({ theme }) => theme.x};
+      font-weight: ${({ theme }) => theme.bold};
+      color: white;
+    `}
 `;
 
 export default Paragraph;

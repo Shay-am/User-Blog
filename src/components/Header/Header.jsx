@@ -1,16 +1,23 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { Logo, Title, Button, Avatar, Paragraph } from 'components';
 
 const StyledHeader = styled.div`
   width: 100vw;
-  /* height: auto; */
-  position: ${({ noFixed }) => (noFixed ? 'static' : 'fixed')};
+  position: fixed;
   display: flex;
-  justify-content: space-around;
+  align-items: center;
   padding: 6px 20px 7px 20px;
   background-color: white;
+
+  ${({ noFixed }) =>
+    noFixed &&
+    css`
+      position: static;
+      justify-content: space-around;
+      padding: 0;
+    `}
 `;
 
 const StyledHeading = styled.div`

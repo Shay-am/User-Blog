@@ -1,16 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Description, Card } from 'components';
+import { Description, Card, PageWrapper } from 'components';
 import Header from 'components/Header/Header';
 
-const MainPageWrapper = styled.div`
-  width: 100vw;
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-  top: 100px;
-`;
 const StyledDescriptionWrapper = styled.section`
   width: 80vw;
   word-spacing: 2px;
@@ -28,7 +20,7 @@ const StyledCard = styled.ul`
 const MainPage = () => (
   <>
     <Header />
-    <MainPageWrapper>
+    <PageWrapper>
       <StyledDescriptionWrapper>
         <Description>
           Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
@@ -36,7 +28,7 @@ const MainPage = () => (
           who seeks after it and wants to have it, simply because it is pain..
         </Description>
       </StyledDescriptionWrapper>
-    </MainPageWrapper>
+    </PageWrapper>
     <StyledCard>
       <Card />
       <Card />
@@ -48,7 +40,6 @@ const MainPage = () => (
       <Card />
       <Card />
       <Card />
-
       <Card />
       <Card />
     </StyledCard>
