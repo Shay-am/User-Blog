@@ -13,7 +13,7 @@ const App = () => (
       <ThemeProvider theme={theme}>
         <Switch>
           <Route exact path="/" component={MainPage} />
-          <Route exact path="/user/1" component={UserPage} />
+          <Route exact path="/user/:id" component={UserPage} />
           <Route exact path="/comments" component={CommentPage} />
           <Route exact path="/edit" component={EditPostPage} />
         </Switch>

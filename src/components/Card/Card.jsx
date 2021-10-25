@@ -35,14 +35,14 @@ const StyledButton = styled.div`
   right: 5px;
 `;
 
-const Card = () => (
+const Card = ({ name, id, email }) => (
   <>
     <CardWrapper>
       <Avatar />
       <StyledCardDescription>
-        <Paragraph>Leanne Graham</Paragraph>
-        <Paragraph secondary>Email: Sincere@Aprli.Biz</Paragraph>
-        <Paragraph secondary>Id:2</Paragraph>
+        <Paragraph>{name}</Paragraph>
+        <Paragraph secondary>{email}</Paragraph>
+        <Paragraph secondary>Id: {id}</Paragraph>
       </StyledCardDescription>
       <StyledButton>
         <Button as={NavLink} to="/user/1">
