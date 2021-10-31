@@ -5,7 +5,7 @@ const Description = styled.article`
   font-family: 'Poppins', sans-serif;
   font-weight: ${({ theme }) => theme.light};
   font-size: ${({ theme }) => theme.xs};
-  padding: 4px 0 5px 0;
+  padding: 0.2em 0 0.3em 0;
   margin-top: 5px;
   line-height: 20px;
 
