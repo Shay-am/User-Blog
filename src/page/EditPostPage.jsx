@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 
 import styled from 'styled-components';
 import { useUpdatePostMutation } from 'services/userApi';
-import { Button, Paragraph, TextArea } from 'components';
+import { Button, Paragraph } from 'components';
+import { Form, Label, TextArea } from 'components/FormGroup';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
 
 const StyledUploading = styled.div`
   width: 100vw;
-  height: 10vw;
+  height: 10vh;
   color: ${({ theme }) => theme.btn};
   font-size: ${({ theme }) => theme.x};
   padding: 10px;
@@ -25,15 +26,10 @@ const StyledUploading = styled.div`
   border: 1px solid black;
 `;
 
-const StyledWrapperTextArea = styled.div`
-  width: 80vw;
-  margin-bottom: 10px;
-`;
-
-const StyledButtonWrapper = styled.div`
-  width: 100vw;
+const BUttonToolbar = styled.div`
+  width: 15em;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 `;
 
 const EditPostPage = () => {
@@ -61,35 +57,28 @@ const EditPostPage = () => {
       <StyledUploading>
         <Paragraph>Upload Post</Paragraph>
       </StyledUploading>
-      <StyledWrapperTextArea>
+      <Form>
+        <Label htmlFor="title">Title</Label>
         <TextArea
-          placeholder="Write here Title"
-          id={postId}
-          value={title}
+          name="title"
+          placeholder="Write here your title"
+          defaultValue={title}
           onChange={(e) => setTitle(e.target.value)}
-          isValid={isValid}
-        >
-          title
-        </TextArea>
-      </StyledWrapperTextArea>
-      <StyledWrapperTextArea>
+        />
+        <Label htmlFor="body">Body</Label>
         <TextArea
-          placeholder=" "
-          id={postId}
-          value={body}
+          name="body"
+          placeholder="Write here your title"
+          defaultValue={body}
           onChange={(e) => setBody(e.target.value)}
-          isValid={isValid}
-        >
-          Bodyy
-          
-        </TextArea>
-      </StyledWrapperTextArea>
-      <StyledButtonWrapper>
-        <Button as={Link} to={`/users/${userId}/posts`}>
-          Cancel
-        </Button>
-        <Button onClick={() => onSavePostClicked()}>Save</Button>
-      </StyledButtonWrapper>
+        />
+        <BUttonToolbar>
+          <Button as={Link} to={`/users/${userId}/posts`}>
+            Cancel
+          </Button>
+          <Button onClick={() => onSavePostClicked()}>Save</Button>
+        </BUttonToolbar>
+      </Form>
     </Wrapper>
   );
 };

@@ -9,5 +9,5 @@ export { default as Button } from './Button/Button';
 export { default as ListPosts } from './ListPosts/ListPosts';
 export { default as Paragraph } from './Paragraph/Paragraph';
 export { default as PageWrapper } from './PageWrapper/PageWrapper';
-export { default as TextArea } from './TextArea/Textarea';
+
 export { default as ListComments } from './ListComments/ListComments';
