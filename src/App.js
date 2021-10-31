@@ -1,24 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'Theme/Theme';
-import { MainPage, UserPage, CommentPage, EditPostPage } from 'page';
+import { Home, UserPage, CommentPage, EditPostPage } from 'page';
 
 import GlobalStyle from './Theme/GlobalStyles';
 
 const App = () => (
   <>
-    <Router>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route exact path="/user/:id" component={UserPage} />
-          <Route exact path="/comments" component={CommentPage} />
-          <Route exact path="/edit" component={EditPostPage} />
-        </Switch>
-      </ThemeProvider>
-    </Router>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/users/:id/posts" component={UserPage} />
+        <Route exact path="/comments/:postId" component={CommentPage} />
+        <Route exact path="/edit/:id" component={EditPostPage} />
+      </Switch>
+    </ThemeProvider>
   </>
 );
 

@@ -2,15 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { Avatar, Button, Paragraph } from 'components';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addActiveUser } from 'app/features/userSlice';
 
 const CardWrapper = styled.li`
   position: relative;
-  min-width: 290px;
+  min-width: 300px;
   min-height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 0 30px 30px;
+  margin: 0 0 1.8em 1.8em;
   border: 1px solid gray;
   box-shadow: 0 0 0.5em gray;
 
@@ -35,22 +37,31 @@ const StyledButton = styled.div`
   right: 5px;
 `;
 
-const Card = ({ name, id, email }) => (
-  <>
-    <CardWrapper>
-      <Avatar />
-      <StyledCardDescription>
-        <Paragraph>{name}</Paragraph>
-        <Paragraph secondary>{email}</Paragraph>
-        <Paragraph secondary>Id: {id}</Paragraph>
-      </StyledCardDescription>
-      <StyledButton>
-        <Button as={NavLink} to="/user/1">
-          My Lists Posts
-        </Button>
-      </StyledButton>
-    </CardWrapper>
-  </>
-);
+const Card = ({ name, id, email }) => {
+  const dispatch = useDispatch();
+  //  const user= useSelector(state => state.user)
+
+  return (
+    <>
+      <CardWrapper>
+        <Avatar />
+        <StyledCardDescription>
+          <Paragraph>{name}</Paragraph>
+          <Paragraph secondary>{email}</Paragraph>
+          <Paragraph secondary>Id: {id}</Paragraph>
+        </StyledCardDescription>
+        <StyledButton>
+          <Button
+            as={NavLink}
+            to={`/users/${id}/posts`}
+            onClick={() => dispatch(addActiveUser({ user: { name } }))}
+          >
+            My List post
+          </Button>
+        </StyledButton>
+      </CardWrapper>
+    </>
+  );
+};
 
 export default Card;

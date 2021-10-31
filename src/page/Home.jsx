@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Description, Card, PageWrapper } from 'components';
 import Header from 'components/Header/Header';
@@ -21,12 +21,8 @@ const StyledCard = styled.ul`
 const MainPage = () => {
   const { data, isFetching } = useGetUsersQuery();
 
-  useEffect(() => {
-    // useGetUsersQuery();
-  }, []);
   if (isFetching) return 'Loading';
-  // eslint-disable-next-line
-  console.log(data);
+
   return (
     <>
       <Header />
@@ -41,9 +37,8 @@ const MainPage = () => {
         </StyledDescriptionWrapper>
       </PageWrapper>
       <StyledCard>
-        {data.map((item) => (
-          // eslint-disable-next-line
-          <Card {...item} />
+        {data.map(({ name, id, email }) => (
+          <Card key={id} name={name} id={id} email={email} />
         ))}
       </StyledCard>
     </>
