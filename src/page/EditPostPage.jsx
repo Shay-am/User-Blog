@@ -80,7 +80,8 @@ const EditPostPage = () => {
           onChange={(e) => setBody(e.target.value)}
           isValid={isValid}
         >
-          Body
+          Bodyy
+          
         </TextArea>
       </StyledWrapperTextArea>
       <StyledButtonWrapper>
