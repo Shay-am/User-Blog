@@ -12,5 +12,5 @@ Redux toolkit
 
 ##
 
-This app pulls random users from the api. It shows their posts and comments.
+This app pulls random users from the api ('https://jsonplaceholder.typicode.com'). It shows their posts and comments.
 You can also update the title and description
