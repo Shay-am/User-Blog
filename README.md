@@ -6,7 +6,7 @@ Live demo: https://adoring-hodgkin-6cb9c0.netlify.app
 
 React,
 
-StyledComponents,
+Styled Components,
 
 Redux toolkit,
 
