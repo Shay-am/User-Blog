@@ -5,9 +5,11 @@ const apiUrl = 'https://jsonplaceholder.typicode.com';
 export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({ baseUrl: apiUrl }),
+  tagTypes: ['POST'],
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: () => ({ url: `/users` }),
+      providesTags: ['POST'],
     }),
     getUserPosts: builder.query({
       query: (userId) => ({ url: `/posts/?userId=${userId}` }),
@@ -24,6 +26,7 @@ export const userApi = createApi({
           body: JSON.stringify(data),
         };
       },
+      invalidatesTags: ['POST'],
     }),
   }),
 });

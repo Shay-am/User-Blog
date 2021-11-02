@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 import prevIconButton from '../../assets/PrevIconButton.svg';
 
-const Button = styled.button`
+const Button = styled.button.attrs((props) => ({
+  type: props.type || 'button',
+}))`
   font-size: ${({ theme }) => theme.s};
   padding: 0.7rem;
   background: ${({ theme }) => theme.btn};

@@ -8,7 +8,5 @@ const Form = styled.form.attrs((props) => ({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
-  position: relative;
 `;
 export default Form;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -13,7 +13,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
+`;
+
+const StyledForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
 `;
 
 const StyledUploading = styled.div`
@@ -31,25 +36,46 @@ const BUttonToolbar = styled.div`
   display: flex;
   justify-content: space-around;
 `;
+const Message = styled.span`
+  font-size: 3rem;
+`;
 
 const EditPostPage = () => {
-  const [isValid, setValid] = useState(true);
-  // const history = useHistory();
+  const history = useHistory();
+  const [isError, setError] = useState(false);
 
-  const postData = useSelector(({ post }) => post.post);
-  const { userId, id: postId } = postData;
+  const post = useSelector((state) => state.post.post);
+  const { userId, id: postId } = post;
 
-  const [title, setTitle] = useState(postData.title);
-  const [body, setBody] = useState(postData.body);
+  const [values, setValues] = useState({
+    title: post.title,
+    body: post.body,
+  });
 
   const [updatePost] = useUpdatePostMutation();
 
   const onSavePostClicked = async () => {
-    if (title) {
-      setValid(false);
+    try {
+      if (values.title && values.body) {
+        await updatePost({
+          title: values.title,
+          body: values.body,
+          postId,
+        })
+          .unwrap()
+          .then(() => history.push(`/users/${postId}/posts`))
+          .catch(() => setError(true));
+      }
+    } catch (err) {
+      setError(true);
     }
-    await updatePost({ title, body, postId });
-    // history.push(`/users/${userId}/posts`);
+  };
+
+  const handleChange = (e) => {
+    setValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
@@ -58,24 +84,30 @@ const EditPostPage = () => {
         <Paragraph>Upload Post</Paragraph>
       </StyledUploading>
       <Form>
-        <Label htmlFor="title">Title</Label>
-        <TextArea
-          name="title"
-          placeholder="Write here your title"
-          defaultValue={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <Label htmlFor="body">Body</Label>
-        <TextArea
-          name="body"
-          placeholder="Write here your title"
-          defaultValue={body}
-          onChange={(e) => setBody(e.target.value)}
-        />
+        <StyledForm>
+          <Label htmlFor="title">Title</Label>
+          <TextArea
+            name="title"
+            placeholder="Write here your title"
+            value={values.title || ''}
+            handleChange={handleChange}
+          />
+        </StyledForm>
+        {isError && <Message>This post is not updated!!! Try again</Message>}
+        <StyledForm>
+          <Label htmlFor="body">Body</Label>
+          <TextArea
+            name="body"
+            placeholder="Write here your body"
+            value={values.body || ''}
+            handleChange={handleChange}
+          />
+        </StyledForm>
         <BUttonToolbar>
           <Button as={Link} to={`/users/${userId}/posts`}>
             Cancel
           </Button>
+
           <Button onClick={() => onSavePostClicked()}>Save</Button>
         </BUttonToolbar>
       </Form>
