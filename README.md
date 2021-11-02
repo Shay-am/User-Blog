@@ -4,11 +4,11 @@ Live demo: https://adoring-hodgkin-6cb9c0.netlify.app
 
 #Stack:
 
-React,
+React
 
-Styled Components,
+Styled Components
 
-Redux toolkit,
+Redux toolkit
 
 ##
 
