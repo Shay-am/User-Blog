@@ -1,6 +1,6 @@
 # Users Blog
 
-livedemo: https://adoring-hodgkin-6cb9c0.netlify.app
+Live demo: https://adoring-hodgkin-6cb9c0.netlify.app
 
 #Stack:
 
