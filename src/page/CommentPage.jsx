@@ -36,7 +36,7 @@ const CommentPage = () => {
           id={comment.id}
           name={comment.name}
           body={comment.body}
-          email={comment.body}
+          email={comment.email}
         />
       ))}
     </>
