@@ -7,7 +7,7 @@ import { useGetUsersQuery } from 'services/userApi';
 const StyledDescriptionWrapper = styled.section`
   width: 80vw;
   word-spacing: 2px;
-  margin: 10px 10px 40px 10px;
+  margin: 0.6em 1em 2em 1em;
 `;
 
 const StyledCard = styled.ul`
@@ -21,7 +21,7 @@ const StyledCard = styled.ul`
 const MainPage = () => {
   const { data, isFetching } = useGetUsersQuery();
 
-  if (isFetching) return 'Loading';
+  if (isFetching) return 'Loading...';
 
   return (
     <>

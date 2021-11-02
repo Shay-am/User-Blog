@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 import prevIconButton from '../../assets/PrevIconButton.svg';
 
-const Button = styled.button.attrs((props) => ({
-  type: props.type || 'button',
-}))`
+const Button = styled.button`
   font-size: ${({ theme }) => theme.s};
   padding: 0.7rem;
   background: ${({ theme }) => theme.btn};
@@ -12,6 +11,11 @@ const Button = styled.button.attrs((props) => ({
   border-radius: 20px;
   cursor: pointer;
   text-decoration: none;
+  position: relative;
+
+  &:active {
+    top: 0.2em;
+  }
 
   ${({ cancel }) =>
     cancel &&
@@ -34,19 +38,27 @@ const Button = styled.button.attrs((props) => ({
       font-size: 1.3rem;
 
       &::before {
-        width: 70px;
-        height: 70px;
+        width: 5em;
+        height: 5em;
         content: '';
         position: absolute;
         background-image: url(${prevIconButton});
-        background-size: cover;
+        background-size: contain;
 
         background-repeat: no-repeat;
         background-size: 50px 50px;
-        left: 2px;
-        top: 3px;
+        left: -3.5em;
+        top: -0.2em;
       }
     `}
 `;
+
+Button.propTypes = {
+  type: PropTypes.string,
+};
+
+Button.defaultProps = {
+  type: 'button',
+};
 
 export default Button;

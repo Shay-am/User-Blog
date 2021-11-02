@@ -18,14 +18,11 @@ export const userApi = createApi({
       query: (postId) => ({ url: `/posts/${postId}/comments` }),
     }),
     updatePost: builder.mutation({
-      query: (data) => {
-        console.log(data);
-        return {
-          url: `posts/${data.postId}`,
-          method: 'PUT',
-          body: JSON.stringify(data),
-        };
-      },
+      query: (data) => ({
+        url: `posts/${data.postId}`,
+        method: 'PUT',
+        body: data,
+      }),
       invalidatesTags: ['POST'],
     }),
   }),

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Form = styled.form.attrs((props) => ({
   onSubmit: props.handler,
@@ -9,4 +10,9 @@ const Form = styled.form.attrs((props) => ({
   align-items: center;
   justify-content: center;
 `;
+
+Form.propTypes = {
+  onSubmit: PropTypes.func,
+};
+
 export default Form;

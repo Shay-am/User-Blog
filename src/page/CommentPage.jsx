@@ -11,16 +11,17 @@ const StyledComments = styled.div`
   min-height: 2em;
   top: 2em;
   padding: 1em;
+  transform: translateX(10%);
 `;
 
 const CommentPage = () => {
   const postData = useSelector(({ post }) => post.post);
   const { userId, id, title, body } = postData;
   const { postId } = useParams();
-  const { data, isFetching } = useGetPostCommentsByIdQuery(postId);
+  const { data: comments, isFetching } = useGetPostCommentsByIdQuery(postId);
 
   if (isFetching) return 'Loading...';
-  console.log(data);
+
   return (
     <>
       <Header nav />
@@ -28,9 +29,15 @@ const CommentPage = () => {
       <StyledComments>
         <Paragraph>Comments:</Paragraph>
       </StyledComments>
-      {data.map((item) => (
-        // eslint-disable-next-line
-        <ListComments key={item.id} {...item} />
+      {comments.map((comment) => (
+        <ListComments
+          key={comment.id}
+          postId={comment.postId}
+          id={comment.id}
+          name={comment.name}
+          body={comment.body}
+          email={comment.body}
+        />
       ))}
     </>
   );

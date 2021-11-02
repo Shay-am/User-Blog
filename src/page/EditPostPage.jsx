@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import styled from 'styled-components';
 import { useUpdatePostMutation } from 'services/userApi';
-import { Button, Paragraph } from 'components';
+import { Button, Logo, Paragraph } from 'components';
 import { Form, Label, TextArea } from 'components/FormGroup';
 
 const Wrapper = styled.div`
@@ -18,17 +18,22 @@ const Wrapper = styled.div`
 const StyledForm = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 2em;
+  margin: 1em 0;
 `;
 
 const StyledUploading = styled.div`
+  display: flex;
   width: 100vw;
-  height: 10vh;
+  justify-content: space-around;
+  align-items: center;
+
   color: ${({ theme }) => theme.btn};
   font-size: ${({ theme }) => theme.x};
-  padding: 10px;
-  margin-bottom: 40px;
-  border: 1px solid black;
+
+  border-bottom: 1px solid black;
+`;
+const StyledLabel = styled(Label)`
+  margin-bottom: 0.3em;
 `;
 
 const BUttonToolbar = styled.div`
@@ -36,13 +41,18 @@ const BUttonToolbar = styled.div`
   display: flex;
   justify-content: space-around;
 `;
-const Message = styled.span`
+const Message = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: ${({ hasError }) => (hasError ? 'none' : 'block')};
+
+  transform: translateX(10%);
   font-size: 3rem;
 `;
 
 const EditPostPage = () => {
   const history = useHistory();
-  const [isError, setError] = useState(false);
+  const [hasError, setError] = useState(false);
 
   const post = useSelector((state) => state.post.post);
   const { userId, id: postId } = post;
@@ -51,6 +61,14 @@ const EditPostPage = () => {
     title: post.title,
     body: post.body,
   });
+
+  useEffect(() => {
+    if (hasError) {
+      setTimeout(() => {
+        setError(false);
+      }, 3000);
+    }
+  }, [hasError]);
 
   const [updatePost] = useUpdatePostMutation();
 
@@ -79,13 +97,16 @@ const EditPostPage = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper hasError={hasError}>
       <StyledUploading>
-        <Paragraph>Upload Post</Paragraph>
+        <Paragraph size=".8em">Upload Post</Paragraph>
+        <NavLink to="/">
+          <Logo size="3.4em" />
+        </NavLink>
       </StyledUploading>
       <Form>
         <StyledForm>
-          <Label htmlFor="title">Title</Label>
+          <StyledLabel htmlFor="title">Title</StyledLabel>
           <TextArea
             name="title"
             placeholder="Write here your title"
@@ -93,9 +114,9 @@ const EditPostPage = () => {
             handleChange={handleChange}
           />
         </StyledForm>
-        {isError && <Message>This post is not updated!!! Try again</Message>}
+        {hasError && <Message>This post is not updated!!! Try again</Message>}
         <StyledForm>
-          <Label htmlFor="body">Body</Label>
+          <StyledLabel htmlFor="body">Body</StyledLabel>
           <TextArea
             name="body"
             placeholder="Write here your body"
@@ -104,10 +125,9 @@ const EditPostPage = () => {
           />
         </StyledForm>
         <BUttonToolbar>
-          <Button as={Link} to={`/users/${userId}/posts`}>
+          <Button cancel="true" as={Link} to={`/users/${userId}/posts`}>
             Cancel
           </Button>
-
           <Button onClick={() => onSavePostClicked()}>Save</Button>
         </BUttonToolbar>
       </Form>

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 
-export const useValidTextArea = (value) => {
-  const [error, setError] = useState(false);
+export const useValidTextArea = (inputValue) => {
+  const [hasError, setError] = useState(false);
   useEffect(() => {
-    if (value === '') {
+    if (inputValue === '') {
       setError(true);
     } else {
       setError(false);
     }
-  }, [value]);
+  }, [inputValue]);
 
-  return error;
+  return hasError;
 };
