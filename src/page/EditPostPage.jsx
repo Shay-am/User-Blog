@@ -131,7 +131,7 @@ const EditPostPage = () => {
           <Button cancel="true" as={Link} to={`/users/${userId}/posts`}>
             Cancel
           </Button>
-          <Button type="submit" onClick={() => onSavePostClicked()}>
+          <Button onClick={() => onSavePostClicked()}>
             Save
           </Button>
         </BUttonToolbar>
