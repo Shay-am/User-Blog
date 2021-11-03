@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
 import prevIconButton from '../../assets/PrevIconButton.svg';
 
 const Button = styled.button`
@@ -52,13 +51,5 @@ const Button = styled.button`
       }
     `}
 `;
-
-Button.propTypes = {
-  type: PropTypes.string,
-};
-
-Button.defaultProps = {
-  type: 'button',
-};
 
 export default Button;

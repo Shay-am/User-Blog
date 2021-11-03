@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Title, Description, Button, Paragraph } from 'components';
-import { addActivePost } from 'app/features/postSlice';
+import { addActivePost } from 'store/features/postSlice';
 
 const StyledWrapperList = styled.li`
   display: flex;

@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { Avatar, Button, Paragraph } from 'components';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addActiveUser } from 'app/features/userSlice';
+import { addActiveUser } from 'store/features/userSlice';
 
-const CardWrapper = styled.li`
+const CardWrapper = styled.article`
   position: relative;
   min-width: 300px;
   min-height: 150px;

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Logo, H1, Button, Avatar, Paragraph } from 'components';
 import { useSelector } from 'react-redux';
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
   width: 100vw;
   position: sticky;
   display: flex;

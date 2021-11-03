@@ -21,7 +21,7 @@ const StyledForm = styled.div`
   margin: 1em 0;
 `;
 
-const StyledUploading = styled.div`
+const StyledUploading = styled.header`
   display: flex;
   width: 100vw;
   justify-content: space-around;
@@ -72,7 +72,8 @@ const EditPostPage = () => {
 
   const [updatePost] = useUpdatePostMutation();
 
-  const onSavePostClicked = async () => {
+  const onSavePostClicked = async (e) => {
+    e.preventDefault();
     try {
       if (values.title && values.body) {
         await updatePost({
@@ -99,7 +100,7 @@ const EditPostPage = () => {
   return (
     <Wrapper hasError={hasError}>
       <StyledUploading>
-        <Paragraph size=".8em">Upload Post</Paragraph>
+        <Paragraph size=".8em">Edit Post</Paragraph>
         <NavLink to="/">
           <Logo size="3.4em" />
         </NavLink>
@@ -109,6 +110,7 @@ const EditPostPage = () => {
           <StyledLabel htmlFor="title">Title</StyledLabel>
           <TextArea
             name="title"
+            id="title"
             placeholder="Write here your title"
             value={values.title || ''}
             handleChange={handleChange}
@@ -119,6 +121,7 @@ const EditPostPage = () => {
           <StyledLabel htmlFor="body">Body</StyledLabel>
           <TextArea
             name="body"
+            id="body"
             placeholder="Write here your body"
             value={values.body || ''}
             handleChange={handleChange}
@@ -128,7 +131,9 @@ const EditPostPage = () => {
           <Button cancel="true" as={Link} to={`/users/${userId}/posts`}>
             Cancel
           </Button>
-          <Button onClick={() => onSavePostClicked()}>Save</Button>
+          <Button type="submit" onClick={() => onSavePostClicked()}>
+            Save
+          </Button>
         </BUttonToolbar>
       </Form>
     </Wrapper>

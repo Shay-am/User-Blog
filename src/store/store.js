@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import { userApi } from 'services/userApi';
-import userReducer from 'app/features/userSlice';
-import postReducer from 'app/features/postSlice';
+import userReducer from 'store/features/userSlice';
+import postReducer from 'store/features/postSlice';
 
 export const store = configureStore({
   reducer: {

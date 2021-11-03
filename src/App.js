@@ -1,10 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { theme } from 'Theme/Theme';
+import { theme } from 'theme/Theme';
 import { Home, UserPage, CommentPage, EditPostPage } from 'page';
 
-import GlobalStyle from './Theme/GlobalStyles';
+import GlobalStyle from './theme/GlobalStyles';
 
 const App = () => (
   <>
